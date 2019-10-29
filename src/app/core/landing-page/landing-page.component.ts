@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-
+  hours = [6,7,8,9,10,11,12];
   constructor() { }
 
   ngOnInit() {

@@ -7,10 +7,11 @@
   </section>
   <section class="today-detail">
     Your Morning will look Like...
-
-        <mini-summary *ngFor="let hour of hours"></mini-summary>
-  
-
+    <ul class="hrs">
+      <li *ngFor="let hour of hours">
+         <mini-summary ></mini-summary>
+      </li>
+    </ul>
   </section>
   <section class="week-tabs"> Week Tab Display</section>
   <section class="week-display">Week Weather Display</section>
