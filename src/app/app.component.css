@@ -1,0 +1,13 @@
+header,footer,#content { position:absolute; right:0;left:0}
+
+header{
+   height:100px; top:0;
+}
+footer{
+  height:1em; bottom:0;
+}
+#content{
+  top:100px;
+  bottom:100px;
+  overflow:hidden; /* no window scrollbars using an inner element for scrolling*/
+}
