@@ -1,7 +1,7 @@
 /* Framework specific */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 
 /* App specific */
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CachingInterceptor } from './cache/caching-interceptor.service';
+import { ForecastService } from './services/forecast.service';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,11 @@ import { CachingInterceptor } from './cache/caching-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatCardModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }],
+  providers: [ForecastService,{ provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 
