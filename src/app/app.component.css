@@ -9,5 +9,5 @@ footer{
 #content{
   top:100px;
   bottom:100px;
-  overflow:hidden; /* no window scrollbars using an inner element for scrolling*/
+  /*overflow:hidden; /* no window scrollbars using an inner element for scrolling*/
 }

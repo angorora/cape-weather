@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-full-summary',
+  selector: 'full-summary',
   templateUrl: './full-summary.component.html',
   styleUrls: ['./full-summary.component.css']
 })

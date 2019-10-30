@@ -1,17 +1,25 @@
 <div class="wrapper">
   <section class="today">
-    <div class="today-overall"> Today Overall</div>
-    <div class="today-morning">Morning </div>
-    <div class="today-afternoon">Afternoon</div>
-    <div class="today-evening">Evening</div>
+    <div class="today-overall"> 
+      <full-summary></full-summary>
+    </div>
+    <div class="today-morning">
+        <full-summary></full-summary>  
+    </div>
+    <div class="today-afternoon">
+        <full-summary></full-summary>
+    </div>
+    <div class="today-evening">
+        <full-summary></full-summary>
+    </div>
   </section>
   <section class="today-detail">
-    Your Morning will look Like...
-    <ul class="hrs">
-      <li *ngFor="let hour of hours">
-         <mini-summary ></mini-summary>
-      </li>
-    </ul>
+    <div class="today-detail-header">Your Morning Will Be Like</div>
+    <div class="today-detail-content">
+        <span class="hr-summary" *ngFor="let hour of hours">
+            <mini-summary ></mini-summary>
+        </span>
+    </div>
   </section>
   <section class="week-tabs"> Week Tab Display</section>
   <section class="week-display">Week Weather Display</section>
