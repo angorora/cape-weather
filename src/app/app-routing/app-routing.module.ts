@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from '../core/landing-page/landing-page.component';
+import { LandingPageComponent } from '../core/components/landing-page/landing-page.component';
 const appRoutes: Routes = [
  {path:'', component: LandingPageComponent}
 ];
