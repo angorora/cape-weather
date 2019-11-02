@@ -44,7 +44,7 @@ import { AppEffects } from './app.effects';
     MatCardModule,
     MatListModule,
     MatIconModule,
-    MatTabsModule,
+    MatButtonModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

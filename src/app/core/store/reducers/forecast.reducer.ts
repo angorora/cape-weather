@@ -55,11 +55,10 @@ function convertDailyTemperature( dailyWeather: DailyWeather[], unit: string): D
         }));
  }
 
- function convertHourlyTemperature( dailyWeather: Weather[], unit: string): Weather[]{
-    return dailyWeather.map(forecast =>
-        ({...forecast,
-            temperatureMax: convertTemp(forecast.temperature, unit), 
-            temperatureMin: convertTemp(forecast.temperature, unit),
+ function convertHourlyTemperature( hourlyWeather: Weather[], unit: string): Weather[]{
+    return hourlyWeather.map(forecast =>
+        ({
+            ...forecast, temperature: convertTemp(forecast.temperature, unit)
         }));
  }
  function convertCurrentTemperature( hourlyWeather: Weather, unit: string): Weather{
@@ -103,7 +102,6 @@ function createCurrentForecastObject(responseObject: any): Weather{
              icon: responseObject.icon,
              temperature: convertTemp(responseObject.temperature, "C"),
           };
- 
 }
 
 function getLocalDate(unixTimeStamp: number){

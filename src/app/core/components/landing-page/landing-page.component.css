@@ -1,11 +1,63 @@
 .wrapper{
-    display: grid;
-   
+ display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
-.list{
+.alerts{
+    display: grid;
+    align-self: center;
+}
+.currently {
+    align-self: center;
+}
+.weekly {
+   display: flex;
+   flex-direction: column;
+}
+.weekly b{
+  font-size: 1.5em;;
+ }
+#day-list{
+    display: flex;
+    overflow-x: auto;
+    justify-content: flex-start;
+}
+#hr-list{
+    display: flex;
+    justify-content: flex-start;
     list-style: none;
+    overflow-x: auto;
+}
+.day{
+    margin: 10px;
+    color:black ;
+    border:2px solid black ;
+    border-radius: 6px;
+    background-color:snow;
+    text-align: center;
+}
+.day > h3{
+    margin: 10px;
+    color:#FF5733;
+    border-radius: 6px;
 }
 
+.hour{
+    margin: 10px;
+    color:black ;
+    border:2px solid black ;
+    border-radius: 6px;
+    background-color:snow;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px
+}
+
+.hour > h3{
+    margin: 10px;
+    color: #FF5733;
+    border-radius: 6px;
+}
 .hot-alert{
     background-color: red;
 }
@@ -13,55 +65,15 @@
 .cold-alert{
     background-color: blue;
 }
-/* .today {
- grid-column: col / span 7 ;
- grid-row: 1;
- display:grid;
- grid-template-columns: [col] 1fr [col] 1fr [col] 1fr [col] 1fr [col];
- grid-template-rows: 1fr;
+.btn-grp{
+    display: flex;
+    justify-content: flex-end;
 }
-
-.today-overall{
-    grid-column: col 1 / col 1;
-    grid-row: 1;
+.btn-grp button{
+    border:2px solid black ;
+    margin-left: 5px;
 }
-
-.today-morning{
-    grid-column: col 2 / col 2;
-    grid-row: 1;
+.header-title{
+    font-size: 2em ;
+    align-self: center;
 }
-
-.today-afternoon{
-    grid-column: col 3 / col 3;
-    grid-row: 1;
-}
-
-.today-evening{
-    grid-column: col 4 / col 4;
-    grid-row: 1;
-}
-
-.today-detail {
-    grid-column: col / span 7 ;
-    grid-row: 2;
-    display:grid;
-    grid-template-columns: [col] 1fr;
-    grid-template-rows: 1fr auto;
-    background-color: darkgreen ;
-}
-
-.today-detail-content{
-  grid-row: 2;
-  display: flex;
-  flex: row wrap;
-}
-
-.week-tabs {
-    grid-column: col / span 7 ;
-    grid-row: 3;
-}
-
-.week-display {
-    grid-column: col / span 7 ;
-    grid-row: 4;
-} */

@@ -1,42 +1,43 @@
 <div class="wrapper">
-  <div *ngIf="((currentWeather$ | async)?.temperature > MAX_C_TEMP && stateUnit === CELCIUS_UNIT )||( (currentWeather$ | async)?.temperature > MAX_F_TEMP && stateUnit === FARENHEIT_UNIT)" class="hot-alert">
-    <p>Temperature has become too Hot</p>
-  </div>
-
-  <div *ngIf="(currentWeather$ | async)?.temperature < MIN_C_TEMP && stateUnit == CELCIUS_UNIT || (currentWeather$ | async)?.temperature < MIN_F_TEMP && stateUnit == FARENHEIT_UNIT" class="cold-alert">
-      <p>Temperature has become too cold</p>
-  </div>
-
-  <div  class="btn-grp">
-      <span><button mat-raised-button color="primary" (click)="changeTemperatureUnit('C')">&#176;{{CELCIUS_UNIT}}</button></span>
-      <span>  <button mat-button color="primary" (click)="changeTemperatureUnit('F')">&#176;{{FARENHEIT_UNIT}}</button></span>
-  </div>
-
+  <div class="header-title"> Cape Town Weather  </div>
+<div class="alerts">
+    <div *ngIf="((currentWeather$ | async)?.temperature > MAX_C_TEMP && stateUnit === CELCIUS_UNIT )||( (currentWeather$ | async)?.temperature > MAX_F_TEMP && stateUnit === FARENHEIT_UNIT)" class="hot-alert">
+        <p>Temperature has become too Hot</p>
+      </div>
+    <div *ngIf="(currentWeather$ | async)?.temperature < MIN_C_TEMP && stateUnit == CELCIUS_UNIT || (currentWeather$ | async)?.temperature < MIN_F_TEMP && stateUnit == FARENHEIT_UNIT" class="cold-alert">
+        <p>Temperature has become too cold</p>
+    </div>
+    <div  class="btn-grp">
+        <div><button mat-button color="primary" (click)="changeTemperatureUnit('C')">&#176;{{CELCIUS_UNIT}}</button></div>
+        <div><button mat-button color="primary" (click)="changeTemperatureUnit('F')">&#176;{{FARENHEIT_UNIT}}</button></div>
+    </div>
+</div>
   <div class="currently">
-    <h2>Current Temp: {{(currentWeather$ | async)?.temperature | number : '2.0-0'}} &#176;{{stateUnit}}</h2>
+    <h2>Current Temperature: {{(currentWeather$ | async)?.temperature | number : '2.0-0'}} &#176;{{stateUnit}}</h2>
   </div>
- <div class="weekly">
-   <h2>Weekly Temperatures</h2>
-    <ul class = "list">
-        <li (click)="filterDayHourlyWeather(forecast?.date)"  *ngFor="let forecast  of dailyWeather$ | async">
-           <h3 > {{forecast?.date}} </h3>
-           <p >
-             <span> High:  {{forecast?.temperatureMax | number: '2.0-0'}} &#176;{{stateUnit}}</span>
-             <span class="demo-2">Low:  {{forecast?.temperatureMin | number: '2.0-0'}} &#176;{{stateUnit}} </span>
-           </p>
-        </li>
-      </ul>
+ <div class="week-display">
+    <div class="weekly">
+        <span><b>Weekly Temperatures</b> <em>(Click date for hourly forecast)</em></span>
+         <div id="day-list">
+             <span  class="day" (click)="filterDayHourlyWeather(forecast?.date)"  *ngFor="let forecast  of dailyWeather$ | async">
+                <h3 > {{forecast?.date}} </h3>
+
+                  <div> High:  {{forecast?.temperatureMax | number: '2.0-0'}} &#176;{{stateUnit}}</div>
+                  <div class="demo-2">Low:  {{forecast?.temperatureMin | number: '2.0-0'}} &#176;{{stateUnit}} </div>
+                
+              </span>
+          </div>
+      </div>
+      <div class="hourly">
+         <h2>Hourly Temperatures</h2>
+          <div id = "hr-list">
+              <span class="hour" *ngFor="let forecast  of dayHourlyWeather">
+                 <h3 > {{forecast?.time}} </h3>
+                 <p>
+                   <span> {{forecast?.temperature | number: '2.0-0'}} &#176;{{stateUnit}} </span>
+                 </p>
+              </span>
+            </div>
+       </div>
  </div>
- <div class="hourly">
-    <h2>Weekly Temperatures</h2>
-     <ul class = "list">
-         <li *ngFor="let forecast  of dayHourlyWeather">
-            <h3 > {{forecast?.date}} </h3>
-            <p>
-              <span> High:  {{forecast?.time}} </span>
-              <span class="demo-2">Low:  {{forecast?.temperature | number: '2.0-0'}} &#176;{{stateUnit}} </span>
-            </p>
-         </li>
-       </ul>
-  </div>
 </div>

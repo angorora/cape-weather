@@ -35,7 +35,11 @@ export class LandingPageComponent implements OnInit {
                 this.dailyWeather$ = this.store.select(fromRoot.getDailyWeather);
                 this.currentWeather$ = this.store.select(fromRoot.getCurrentWeather);
                  this.store.select(fromRoot.getHourlyWeather)
-                                                  .subscribe(weather => this.hourlyWeather = weather);
+                                                  .subscribe( (weather) => 
+                                                    {
+                                                      console.dir(weather)
+                                                      this.hourlyWeather = weather
+                                                    });
                 this.store.select(fromRoot.getWeatherUnit).subscribe( unit=>{
                   this.stateUnit = unit;
                 });
@@ -59,14 +63,12 @@ export class LandingPageComponent implements OnInit {
   changeTemperatureUnit(unit: string){
     if(this.stateUnit !== unit)
      this.store.dispatch( new actions.ChangeTemperatureUnitAction(unit));
+     this.filterDayHourlyWeather(this.date)
   }
 
   filterDayHourlyWeather(date:string){
     this.date = date
-    console.log(date.substr(0,3));
     this.dayHourlyWeather = this.hourlyWeather.filter(forecast => forecast.date === this.date);
-    console.log(this.hourlyWeather);
-    console.log(this.dayHourlyWeather);
   }
 
   //ToDO Unsubscribe explicitly subscribed observables
