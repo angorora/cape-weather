@@ -17,6 +17,10 @@
 .weekly b{
   font-size: 1.5em;;
  }
+
+ #no-forecast em{
+    color:#FF5733; ;
+ }
 #day-list{
     display: flex;
     overflow-x: auto;

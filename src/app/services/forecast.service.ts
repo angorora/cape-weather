@@ -12,7 +12,7 @@ export class ForecastService {
   
   constructor(private http: HttpClient) { 
     this.apikey = "591ef5bd5f9e07c7547639a93f6feb33";
-    this.baseUrl = "https://api.darksky.net/forecast/";
+    this.baseUrl = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/";
   }
   
   getForecast(coordinates: string): Observable<any>{

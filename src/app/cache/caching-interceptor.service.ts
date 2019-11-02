@@ -6,9 +6,10 @@ import { RequestCache } from './request-cache.service';
 
 @Injectable()
 export class CachingInterceptor implements HttpInterceptor {
-  constructor(private cache: RequestCache) {}
+  constructor(private cache: RequestCache) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
+    req.headers.set("Access-Control-Allow-Origin", "*");
     const cachedResponse = this.cache.get(req);
     return cachedResponse ? of(cachedResponse) : this.sendRequest(req, next, this.cache);
   }

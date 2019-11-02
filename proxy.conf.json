@@ -1,0 +1,8 @@
+
+{
+    "*": {
+      "target": "https://api.darksky.net/forecast/",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
